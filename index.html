@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-D9X3M3V53D"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-D9X3M3V53D');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>保育士向けAI連絡帳ジェネレーター｜毎日の連絡帳を3秒で作成</title>
+  <meta name="description" content="保育士の毎日の連絡帳作成を効率化。子どもの名前・年齢・エピソードを入力するだけで、保護者に渡す連絡帳の文章を3パターン自動生成。無料で使えるWebツール。">
+  <meta property="og:title" content="保育士向けAI連絡帳ジェネレーター｜毎日の連絡帳を3秒で作成">
+  <meta property="og:description" content="保育士の連絡帳作成を効率化。子どもの名前・年齢・エピソードを入力するだけで文章を3パターン自動生成。APIキー不要・無料。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://techio-code.github.io/renrakucho-generator/">
+  <meta property="og:image" content="https://techio-code.github.io/renrakucho-generator/ogp.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="保育士向けAI連絡帳ジェネレーター">
+  <meta name="twitter:description" content="連絡帳を3パターン自動生成。保育士の毎日の業務を効率化。無料ツール。">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📒</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ヘッダー -->
+  <header class="header">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-icon">📒</span>
+        <div class="logo-text">
+          <h1 class="logo-title">AI連絡帳ジェネレーター</h1>
+          <p class="logo-sub">保育士向け 無料ツール</p>
+        </div>
+      </div>
+      <p class="header-desc">子どもの名前・エピソードを入力するだけで<br>連絡帳の文章を3パターン自動生成します</p>
+      <div class="header-badges">
+        <span class="badge badge-free">✨ 無料</span>
+        <span class="badge badge-no-api">🔑 APIキー不要</span>
+        <span class="badge badge-sp">📱 スマホ対応</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- メイン -->
+  <main class="main">
+
+    <!-- 入力フォームカード -->
+    <section class="card form-card">
+      <div class="card-header">
+        <span class="step-num">STEP 1</span>
+        <h2 class="card-title">👶 子どもの情報を入力</h2>
+      </div>
+
+      <div class="form-body">
+
+        <!-- 子どもの名前 -->
+        <div class="form-group">
+          <label class="form-label" for="childName">
+            お子さんの名前（ひらがな）<span class="required">必須</span>
+          </label>
+          <input
+            type="text"
+            id="childName"
+            class="form-input"
+            placeholder="例：たろうくん、はなちゃん"
+            maxlength="20"
+          >
+        </div>
+
+        <!-- 年齢 -->
+        <div class="form-group">
+          <label class="form-label">年齢 <span class="required">必須</span></label>
+          <div class="age-selector" role="group" aria-label="年齢選択">
+            <button class="age-btn" data-age="0">0歳</button>
+            <button class="age-btn" data-age="1">1歳</button>
+            <button class="age-btn" data-age="2">2歳</button>
+            <button class="age-btn" data-age="3">3歳</button>
+            <button class="age-btn" data-age="4">4歳</button>
+            <button class="age-btn" data-age="5">5歳</button>
+            <button class="age-btn" data-age="6">6歳</button>
+          </div>
+        </div>
+
+        <!-- 今日の様子（チェックボックス） -->
+        <div class="form-group">
+          <label class="form-label">今日の様子 <span class="optional">任意・複数選択可</span></label>
+          <div class="checkbox-grid">
+            <label class="check-label">
+              <input type="checkbox" value="genki" class="check-input">
+              <span class="check-box"><span class="check-icon">😊</span> 元気</span>
+            </label>
+            <label class="check-label">
+              <input type="checkbox" value="egao" class="check-input">
+              <span class="check-box"><span class="check-icon">😄</span> 笑顔いっぱい</span>
+            </label>
+            <label class="check-label">
+              <input type="checkbox" value="naita" class="check-input">
+              <span class="check-box"><span class="check-icon">😢</span> 泣いた</span>
+            </label>
+            <label class="check-label">
+              <input type="checkbox" value="yoku_tabeta" class="check-input">
+              <span class="check-box"><span class="check-icon">🍱</span> よく食べた</span>
+            </label>
+            <label class="check-label">
+              <input type="checkbox" value="shoshoku" class="check-input">
+              <span class="check-box"><span class="check-icon">🥄</span> 少食</span>
+            </label>
+            <label class="check-label">
+              <input type="checkbox" value="hirune_shita" class="check-input">
+              <span class="check-box"><span class="check-icon">😴</span> 昼寝した</span>
+            </label>
+            <label class="check-label">
+              <input type="checkbox" value="hirune_shinakatta" class="check-input">
+              <span class="check-box"><span class="check-icon">🙅</span> 昼寝しなかった</span>
+            </label>
+            <label class="check-label">
+              <input type="checkbox" value="tomodachi" class="check-input">
+              <span class="check-box"><span class="check-icon">👫</span> お友達と仲良く</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- 今日のエピソード -->
+        <div class="form-group">
+          <label class="form-label" for="episode">
+            今日のエピソード <span class="required">必須</span>
+          </label>
+          <textarea
+            id="episode"
+            class="form-textarea"
+            placeholder="例：砂場でお友達と一緒にケーキを作っていました。「どうぞ」と渡してあげる姿がかわいかったです。"
+            maxlength="300"
+            rows="4"
+          ></textarea>
+          <div class="char-count"><span id="episodeCount">0</span> / 300文字</div>
+        </div>
+
+        <!-- トーン選択 -->
+        <div class="form-group">
+          <label class="form-label">文章のトーン</label>
+          <div class="tone-selector" role="group" aria-label="トーン選択">
+            <button class="tone-btn active" data-tone="warm">
+              <span class="tone-icon">🌸</span>
+              <span class="tone-name">温かく</span>
+            </button>
+            <button class="tone-btn" data-tone="polite">
+              <span class="tone-icon">📝</span>
+              <span class="tone-name">丁寧に</span>
+            </button>
+            <button class="tone-btn" data-tone="bright">
+              <span class="tone-icon">☀️</span>
+              <span class="tone-name">明るく</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 生成ボタン -->
+        <button class="btn-generate" id="generateBtn" disabled>
+          <span class="btn-icon">✨</span>
+          連絡帳を生成する
+        </button>
+      </div>
+    </section>
+
+    <!-- 生成結果エリア -->
+    <section class="results-section hidden" id="resultsSection">
+      <div class="card-header results-header">
+        <span class="step-num">STEP 2</span>
+        <h2 class="card-title">📝 生成された連絡帳</h2>
+        <p class="results-desc">3パターンから選んでコピーしてください</p>
+      </div>
+
+      <div class="results-grid" id="resultsGrid">
+        <!-- JSで生成 -->
+      </div>
+
+      <button class="btn-regenerate" id="regenerateBtn">
+        🔄 別パターンで再生成
+      </button>
+    </section>
+
+    <!-- 使い方のヒント -->
+    <section class="card tips-card">
+      <h2 class="tips-title">💡 連絡帳の書き方ポイント</h2>
+      <ul class="tips-list">
+        <li class="tip-item">
+          <span class="tip-icon">✅</span>
+          <div>
+            <strong>具体的なエピソードを入れる</strong><br>
+            「元気でした」だけでなく、何をしていたか・何を話していたか書くと保護者も喜ぶ
+          </div>
+        </li>
+        <li class="tip-item">
+          <span class="tip-icon">✅</span>
+          <div>
+            <strong>成長・発見を伝える</strong><br>
+            「初めて〜できました」「〜が上手になってきました」の一言が保護者の宝になる
+          </div>
+        </li>
+        <li class="tip-item">
+          <span class="tip-icon">✅</span>
+          <div>
+            <strong>気になることもやさしく添える</strong><br>
+            心配なことは「様子を見ていきますね」など保護者が不安にならない言葉で締める
+          </div>
+        </li>
+      </ul>
+    </section>
+
+  </main>
+
+  <!-- フッター -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <p class="footer-text">
+        このツールはてちおが作りました。<br>
+        保育士さんの毎日が少し楽になりますように 🌸
+      </p>
+      <a href="https://note.com/techio_note" target="_blank" rel="noopener" class="footer-note-link">
+        📝 noteで活用術を読む →
+      </a>
+      <p class="footer-copy">&copy; 2026 チームてちお</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
