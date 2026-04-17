@@ -140,7 +140,7 @@ function generateText(childName, age, episode, conditions, tone, variant) {
     const growth = randomPick(agePhrases.growth);
     const closing = randomPick(toneModifiers.closing);
 
-    text = `${childName}さんは今日、${episodeTrimmed}`;
+    text = `${childName}は今日、${episodeTrimmed}`;
     if (!text.endsWith('。') && !text.endsWith('！') && !text.endsWith('♪')) {
       text += '。';
     }
@@ -157,9 +157,9 @@ function generateText(childName, age, episode, conditions, tone, variant) {
     const episodeTrimmed = episode.trim();
 
     if (conditionSentence) {
-      text = `${prefix}${childName}さんは${conditionSentence}`;
+      text = `${prefix}${childName}は${conditionSentence}`;
     } else {
-      text = `${prefix}${childName}さんは${action}過ごしていました。`;
+      text = `${prefix}${childName}は${action}過ごしていました。`;
     }
     text += `${episodeTrimmed}`;
     if (!text.endsWith('。') && !text.endsWith('！') && !text.endsWith('♪')) {
